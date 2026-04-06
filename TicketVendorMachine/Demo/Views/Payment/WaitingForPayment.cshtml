@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Processing Payment";
+
+    int ticketId = ViewBag.TicketId;
+    bool isSuccess = ViewBag.IsSuccess;
+}
+
+<style>
+    
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; height: 100vh; width: 100vw; }
+    .container, .body-content, main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+    header, footer, .navbar { display: none !important; }
+
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+         align-items: center;
+    }
+
+   
+    .waiting-pill {
+        background-color: #ffffff;
+        color: #000;
+        font-size: 2.2rem;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px 80px;
+        border-radius: 50px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+        
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    @@keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+        100% { transform: scale(1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+    }
+</style>
+
+<div class="hero-section">
+    <div class="waiting-pill">
+        Waiting for payment...
+    </div>
+</div>
+
+<script>
+    
+    var jsTicketId = '@ticketId';
+    var jsIsSuccess = '@isSuccess.ToString().ToLower()';
+
+    setTimeout(function() {
+        
+        window.location.href = '/Payment/Result?ticketId=' + jsTicketId + '&isSuccess=' + jsIsSuccess;
+    }, 7000);
+</script>

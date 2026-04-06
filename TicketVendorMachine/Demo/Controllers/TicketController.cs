@@ -31,7 +31,6 @@ namespace Demo.Controllers
                 IsStudentTicket = isStudent
             };
 
-            // Apply discount logic, then multiply by the quantity the user selected!
             newTicket.CalculateFinalPrice(effectiveFare);
             newTicket.FinalPrice = newTicket.FinalPrice * ticketQuantity;
 
@@ -42,24 +41,19 @@ namespace Demo.Controllers
 
             return RedirectToAction("PaymentForm", "Payment", new { ticketId = newTicket.TicketID });
         }
-
-        // This catches the POST from the Select Destination page
         [HttpPost]
         public ActionResult Confirm(int destinationId)
         {
-            // Find the station the user just picked
             var destination = db.Destinations.Find(destinationId);
             if (destination == null) return HttpNotFound();
 
-            // Generate a random Departure Station (excluding the selected arrival one)
             var allStations = db.Destinations.Where(d => d.DestinationID != destinationId).ToList();
             var random = new Random();
             var randomDeparture = allStations[random.Next(allStations.Count)];
 
-            // Send the random departure station to the view using ViewBag
             ViewBag.DepartureStation = randomDeparture.StationName;
 
-            return View(destination); // Pass the arrival destination to the view
+            return View(destination); 
         }
     }
 }

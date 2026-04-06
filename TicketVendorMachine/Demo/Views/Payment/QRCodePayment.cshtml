@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Scan QR Code";
+
+    string qrUrl = ViewBag.QrUrl;
+    int ticketId = ViewBag.TicketId;
+    bool isSuccess = ViewBag.IsSuccess;
+}
+
+<style>
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; height: 100vh; width: 100vw; }
+    .container, .body-content, main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+    header, footer, .navbar { display: none !important; }
+
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .glass-panel {
+        background-color: rgba(255, 255, 255, 0.4);
+/*        backdrop-filter: blur(12px);*/
+        border-radius: 20px;
+        padding: 60px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin-bottom: 30px;
+    }
+
+    .qr-container img {
+        width: 350px;
+        height: auto;
+    }
+
+    .scan-pill {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 15px 50px;
+        border-radius: 50px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .spinner {
+        width: 24px;
+        height: 24px;
+        border: 4px solid rgba(0,0,0,0.1);
+        border-left-color: #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<div class="hero-section">
+    <div class="glass-panel">
+
+        <div class="qr-container">
+            <img src="@qrUrl" alt="VietQR Payment Code" />
+        </div>
+
+        <div class="scan-pill">
+            <div class="spinner"></div>
+            Waiting for scan...
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var jsTicketId = '@ticketId';
+    var jsIsSuccess = '@isSuccess.ToString().ToLower()';
+    var secondsLeft = 15;
+
+    setTimeout(function() {
+        window.location.href = '/Payment/Result?ticketId=' + jsTicketId + '&isSuccess=' + jsIsSuccess;
+    }, 15000);
+</script>

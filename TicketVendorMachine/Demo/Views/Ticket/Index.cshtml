@@ -4,7 +4,7 @@
 }
 
 <style>
-    /* 1. Full-screen reset (copied from Home for seamless transition) */
+   
     html, body {
         margin: 0 !important;
         padding: 0 !important;
@@ -23,7 +23,6 @@
         display: none !important;
     }
 
-    /* 2. The Hero Background */
     .hero-section {
         background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
         background-size: cover;
@@ -35,43 +34,37 @@
         align-items: center;
     }
 
-    /* 3. The Translucent Glass Container */
     .glass-panel {
         background-color: rgba(255, 255, 255, 0.4);
 /*        backdrop-filter: blur(8px);*/
         border-radius: 20px;
         padding: 40px;
-        width: 750px; /* Wide enough to fit the large buttons */
+        width: 750px; 
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
-    /* 4. The Scrollable Window */
     .scrollable-list {
-        max-height: 400px; /* Limits height so it scrolls instead of expanding the box */
+        max-height: 400px; 
         overflow-y: auto;
-        padding-right: 15px; /* Adds a little space for the scrollbar */
+        padding-right: 15px; 
         margin-bottom: 20px;
     }
 
-    /* Customizing the scrollbar to look modern */
     .scrollable-list::-webkit-scrollbar { width: 12px; }
     .scrollable-list::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
     .scrollable-list::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.5); border-radius: 10px; }
     .scrollable-list::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.8); }
 
-    /* 5. Destination Button Styling */
     .destination-label {
         display: block;
         margin-bottom: 15px;
         cursor: pointer;
     }
 
-    /* Hide the default radio circle */
     .destination-label input[type="radio"] {
         display: none;
     }
 
-    /* The actual visible "Pill" */
     .option-pill {
         display: flex;
         justify-content: space-between;
@@ -87,32 +80,29 @@
     }
 
     .price-text {
-        color: #28a745; /* The specific green from your picture */
+        color: #28a745; 
         font-weight: bold;
         font-size: 1.2rem;
     }
 
-    /* 6. Interaction States (Hover and Selected) */
     .destination-label:hover .option-pill {
         background-color: #fff;
-        transform: scale(1.02); /* Pop out slightly */
+        transform: scale(1.02);
     }
 
-    /* When the hidden radio is checked, change the pill's color */
     .destination-label input[type="radio"]:checked + .option-pill {
-        background-color: #cf7c52; /* Match the orange from the Home button */
+        background-color: #cf7c52;
         color: #fff;
         border-color: #a85e38;
     }
 
     .destination-label input[type="radio"]:checked + .option-pill .price-text {
-        color: #fff; /* Make price white when selected so it's readable */
+        color: #fff; 
     }
 
-    /* 7. Next Button Setup */
     .action-row {
         display: flex;
-        justify-content: flex-end; /* Pushes the button to the right */
+        justify-content: flex-end; 
         margin-top: 10px;
     }
 

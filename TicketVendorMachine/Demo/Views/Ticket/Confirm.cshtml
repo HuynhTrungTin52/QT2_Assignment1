@@ -173,25 +173,20 @@
 </div>
 
 <script>
-    // Grab the base fare injected by Razor from the database
     const baseFare = Number('@Model.BaseFare');
     let currentQuantity = 1;
 
     function updateQuantity(change) {
-        // Calculate new quantity, but prevent it from going below 1
         let newQuantity = currentQuantity + change;
         if (newQuantity < 1) return;
 
         currentQuantity = newQuantity;
 
-        // Update the UI text
         document.getElementById("displayQty").innerText = currentQuantity;
 
-        // Calculate new price and update the UI
         let newPrice = baseFare * currentQuantity;
-        document.getElementById("displayPrice").innerText = newPrice.toString(); // Add formatting here if you want commas
+        document.getElementById("displayPrice").innerText = newPrice.toString();
 
-        // Update the hidden input so the C# Controller knows how many tickets to create!
         document.getElementById("hiddenQuantity").value = currentQuantity;
     }
 </script>

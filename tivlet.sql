@@ -37,11 +37,12 @@ CREATE TABLE Transactions (
 );
 GO
 
-
 INSERT INTO Destinations (StationName, Zone, BaseFare)
 VALUES 
-    ('Ga Suối Tiên', 1, 5000.00),
-    ('Ga Đại Học Quốc Gia', 2, 10000.00),
-    ('Ga Khu công nghệ cao', 4, 10000.00),
-    ('Ga Thảo Điền', 3, 15000.00)
+    ('National University Station', 1, 10000.00),
+    ('Thao Dien Station', 1, 15000.00),
+    ('Ba Son Station', 1, 15000.00),
+    ('Phuoc Long Station', 1, 15000.00),
+    ('High Tech Park Station', 2, 20000.00),
+    ('Suoi Tien Station', 3, 25000.00);
 GO

@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.IO;
+using System.Net;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 namespace Demo.Controllers
 {
     public class PaymentController : Controller
@@ -33,29 +36,69 @@ namespace Demo.Controllers
             };
             db.Transactions.Add(trans);
 
-            // MOCK VALIDATION: Assume 90% success rate for the demo
-            bool isPaymentValid = new Random().Next(1, 10) > 1;
-
-            if (isPaymentValid)
+            if (paymentMethod == "QR Code")
             {
                 trans.MarkAsSuccess();
                 db.SaveChanges();
 
-                return RedirectToAction("PrintTicket", new { ticketId = ticket.TicketID });
-            }
-            else
-            {
-                trans.MarkAsFailed();
-                db.SaveChanges();
+                string bankBin = "970423";
+                string accountNo = "0000 3596 611";
+                string accountName = Uri.EscapeDataString("SAIGON METRO KIOSK");
+                string paymentInfo = Uri.EscapeDataString($"TICKET {ticketId}");
+                string amount = ticket.FinalPrice.ToString("0");
 
-                TempData["ErrorMessage"] = "Payment declined. Please try again.";
-                return RedirectToAction("PaymentForm", new { ticketId = ticket.TicketID });
+                ViewBag.QrUrl = $"https://img.vietqr.io/image/{bankBin}-{accountNo}-compact2.png?amount={amount}&addInfo={paymentInfo}&accountName={accountName}";
+                ViewBag.TicketId = ticketId;
+                ViewBag.IsSuccess = true;
+
+                return View("QRCodePayment");
             }
+
+
+            // Only roll the 80/20 dice if they picked Credit Card
+            bool isPaymentValid = new Random().Next(1, 10) > 2;
+
+            if (isPaymentValid) trans.MarkAsSuccess();
+            else trans.MarkAsFailed();
+
+            db.SaveChanges();
+
+            if (paymentMethod == "Credit Card")
+            {
+                ViewBag.TicketId = ticketId;
+                ViewBag.IsSuccess = isPaymentValid;
+                return View("WaitingForPayment");
+            }
+
+            return RedirectToAction("Result", new { ticketId = ticket.TicketID, isSuccess = isPaymentValid });
+        }
+        [HttpGet]
+        public JsonResult CheckPaymentStatus(int ticketId)
+        {
+            var transaction = db.Transactions.FirstOrDefault(t => t.TicketID == ticketId);
+
+            if (transaction != null && transaction.Status == "Success")
+            {
+                return Json(new { isPaid = true }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new { isPaid = false }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult Result(int ticketId, bool isSuccess)
+        {
+            ViewBag.IsSuccess = isSuccess;
+
+            return View(ticketId);
         }
         public ActionResult PrintTicket(int ticketId)
         {
-            var ticket = db.Tickets.Include("Destination").FirstOrDefault(t => t.TicketID == ticketId);
-            return View(ticket); // We will build the physical ticket View later
+            var ticket = db.Tickets.Find(ticketId);
+
+            if (ticket == null) return HttpNotFound();
+
+            return View(ticket);
         }
     }
 }

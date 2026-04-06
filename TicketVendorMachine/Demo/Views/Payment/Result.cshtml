@@ -1,0 +1,110 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Transaction Result";
+    bool isSuccess = ViewBag.IsSuccess;
+}
+
+<style>
+    
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; height: 100vh; width: 100vw; }
+    .container, .body-content, main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+    header, footer, .navbar { display: none !important; }
+
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .glass-panel {
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 80px 120px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px;
+    }
+
+    .result-icon {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 30px;
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @@keyframes popIn {
+        0% { transform: scale(0); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .white-pill {
+        background-color: #ffffff;
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 15px 60px;
+        border-radius: 50px;
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    a.white-pill:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+        text-decoration: none;
+        color: #000;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .try-again-link {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .try-again-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="hero-section">
+    <div class="glass-panel">
+
+        @if (isSuccess)
+        {
+            <svg class="result-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#00b84c" />
+                <path d="M28 53 L43 68 L75 35" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <a href="@Url.Action("PrintTicket", "Payment", new { ticketId = Model })" class="white-pill">Issue Ticket</a>
+        }
+        else
+        {
+            <svg class="result-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#ee3d43" />
+                <path d="M32 32 L68 68 M68 32 L32 68" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" />
+            </svg>
+
+            <div class="white-pill">Transaction failed</div>
+
+            <a href="@Url.Action("PaymentForm", "Payment", new { ticketId = Model })" class="try-again-link">Try again</a>
+        }
+
+    </div>
+</div>

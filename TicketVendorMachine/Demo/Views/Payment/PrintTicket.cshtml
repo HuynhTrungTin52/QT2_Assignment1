@@ -1,0 +1,222 @@
+﻿@model Demo.Models.Ticket
+@{
+    ViewBag.Title = "Your Ticket";
+    string destName = ViewBag.DestinationName;
+}
+
+<style>
+    /* Full-screen reset for the web view */
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header, footer, .navbar {
+        display: none !important;
+    }
+    /* Hide the default MVC nav bar */
+
+    /* The Ticket Design */
+    .ticket-wrapper {
+        display: flex;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        overflow: hidden;
+        width: 600px;
+        max-width: 90vw;
+        position: relative;
+    }
+
+    /* Left Side: The Main Ticket */
+    .ticket-main {
+        flex: 3;
+        padding: 30px;
+        border-right: 2px dashed #ccc; /* The tear-away perforation */
+        position: relative;
+    }
+
+    /* Right Side: The Stub */
+    .ticket-stub {
+        flex: 1;
+        padding: 30px;
+        background-color: #0078d4; /* Metro Blue */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Ticket Typography */
+    .ticket-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .metro-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #0078d4;
+        letter-spacing: 1px;
+    }
+
+    .ticket-date {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    .destination {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        margin: 10px 0;
+    }
+
+    .ticket-type {
+        font-size: 1.1rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .price-tag {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #00b84c;
+        margin-top: 20px;
+    }
+
+    /* Fake Barcode using CSS */
+    .barcode {
+        height: 50px;
+        width: 100%;
+        background: repeating-linear-gradient( to right, #000, #000 3px, #fff 3px, #fff 6px, #000 6px, #000 12px, #fff 12px, #fff 15px );
+        margin-top: 15px;
+        opacity: 0.8;
+    }
+
+    .stub-id {
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-top: 10px;
+    }
+
+    .stub-text {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    /* The Print & Home Buttons */
+    .action-buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        border: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-print {
+        background-color: #0078d4;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 120, 212, 0.4);
+    }
+
+        .btn-print:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 120, 212, 0.6);
+        }
+
+    .btn-home {
+        background-color: #e0e0e0;
+        color: #333;
+    }
+
+        .btn-home:hover {
+            background-color: #ccc;
+            transform: translateY(-2px);
+        }
+
+
+    @@media print {
+        body {
+            background-color: white;
+            display: block;
+            padding: 20px;
+        }
+
+        .action-buttons {
+            display: none !important;
+        }
+        /* Hide buttons */
+        .ticket-wrapper {
+            box-shadow: none;
+            border: 2px solid #ccc; /* Add a border just for the printed page */
+            max-width: 100%;
+            width: 100%;
+        }
+        /* Force background colors to print (Chrome requires this) */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+    }
+</style>
+
+<div class="ticket-wrapper">
+    <div class="ticket-main">
+        <div class="ticket-header">
+            <div class="metro-logo">SAIGON METRO</div>
+            <div class="ticket-date">@DateTime.Now.ToString("dd MMM yyyy - HH:mm")</div>
+        </div>
+
+        <div class="ticket-type">
+            @(Model.IsStudentTicket ? "Student Pass" : "Standard Fare")
+        </div>
+
+        <div class="destination">
+            @destName
+        </div>
+
+        <div class="price-tag">
+            @Model.FinalPrice.ToString("N0") vnđ
+        </div>
+    </div>
+
+    <div class="ticket-stub">
+        <div class="stub-text">TICKET ID</div>
+        <div class="stub-id">#@Model.TicketID.ToString("D5")</div>
+
+        <div class="barcode"></div>
+
+        <div class="stub-text" style="margin-top: 15px;">Valid for one trip</div>
+    </div>
+</div>
+
+<div class="action-buttons">
+    <button class="btn btn-print" onclick="window.print()">Print PDF</button>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-home">Return to Home</a>
+</div>

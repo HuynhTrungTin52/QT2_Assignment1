@@ -195,6 +195,10 @@
     <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Ticket\Confirm.cshtml" />
     <Content Include="Views\Payment\PaymentForm.cshtml" />
+    <Content Include="Views\Payment\Result.cshtml" />
+    <Content Include="Views\Payment\WaitingForPayment.cshtml" />
+    <Content Include="Views\Payment\QRCodePayment.cshtml" />
+    <Content Include="Views\Payment\PrintTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
