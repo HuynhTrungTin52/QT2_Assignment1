@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "D:\\QT2_Assignment1\\TicketVendorMachine\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|D:\\QT2_Assignment1\\TicketVendorMachine\\demo\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|D:\\QT2_Assignment1\\TicketVendorMachine\\demo\\models\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|D:\\QT2_Assignment1\\TicketVendorMachine\\demo\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|D:\\QT2_Assignment1\\TicketVendorMachine\\demo\\models\\ticketingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\ticketingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|D:\\QT2_Assignment1\\TicketVendorMachine\\demo\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\models\\ticketingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\ticketingcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\models\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\models\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|d:\\qt2_assignment1\\ticketvendormachine\\demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{95ABC4D6-2CB0-495A-B73A-70A1288833E4}|Demo\\Demo.csproj|solutionrelative:demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,49 +42,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "Demo\\Controllers\\PaymentController.cs",
               "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\PaymentController.cs",
               "RelativeToolTip": "Demo\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAqwC4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwC4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T03:33:36.014Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TicketController.cs",
               "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\TicketController.cs",
               "RelativeDocumentMoniker": "Demo\\Controllers\\TicketController.cs",
               "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\TicketController.cs",
               "RelativeToolTip": "Demo\\Controllers\\TicketController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAqwCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T03:31:29.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Transaction.cs",
-              "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Transaction.cs",
-              "RelativeDocumentMoniker": "Demo\\Models\\Transaction.cs",
-              "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Transaction.cs",
-              "RelativeToolTip": "Demo\\Models\\Transaction.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAuwBEAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T03:30:23.999Z",
               "EditorCaption": ""
             },
             {
@@ -87,27 +82,27 @@
               "RelativeDocumentMoniker": "Demo\\Models\\Ticket.cs",
               "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Ticket.cs",
               "RelativeToolTip": "Demo\\Models\\Ticket.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAmwCgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T03:29:05.843Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Destination.cs",
               "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Destination.cs",
               "RelativeDocumentMoniker": "Demo\\Models\\Destination.cs",
               "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Destination.cs",
               "RelativeToolTip": "Demo\\Models\\Destination.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T03:24:31.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TicketingContext.cs",
               "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\TicketingContext.cs",
               "RelativeDocumentMoniker": "Demo\\Models\\TicketingContext.cs",
@@ -116,6 +111,45 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T03:21:57.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "Demo\\Models\\Transaction.cs",
+              "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Models\\Transaction.cs",
+              "RelativeToolTip": "Demo\\Models\\Transaction.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAmwBEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T03:30:23.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Demo\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Demo\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T01:07:18.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Web.config",
+              "RelativeDocumentMoniker": "Demo\\Web.config",
+              "ToolTip": "D:\\QT2_Assignment1\\TicketVendorMachine\\Demo\\Web.config",
+              "RelativeToolTip": "Demo\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-04-06T00:25:02.503Z",
               "EditorCaption": ""
             }
           ]
