@@ -1,9 +1,0 @@
-D:\QT2_Assignment1\TicketVendorMachine\BLL\bin\Debug\BLL.dll
-D:\QT2_Assignment1\TicketVendorMachine\BLL\bin\Debug\BLL.pdb
-D:\QT2_Assignment1\TicketVendorMachine\BLL\bin\Debug\DAL.dll
-D:\QT2_Assignment1\TicketVendorMachine\BLL\bin\Debug\DAL.pdb
-D:\QT2_Assignment1\TicketVendorMachine\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
-D:\QT2_Assignment1\TicketVendorMachine\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
-D:\QT2_Assignment1\TicketVendorMachine\BLL\obj\Debug\BLL.csproj.Up2Date
-D:\QT2_Assignment1\TicketVendorMachine\BLL\obj\Debug\BLL.dll
-D:\QT2_Assignment1\TicketVendorMachine\BLL\obj\Debug\BLL.pdb
