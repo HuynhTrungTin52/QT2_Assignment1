@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Demo.Models.Destination>
+@{
+    ViewBag.Title = "Select Destination";
+}
+
+<style>
+    /* 1. Full-screen reset (copied from Home for seamless transition) */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .container, .body-content, main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    header, footer, .navbar {
+        display: none !important;
+    }
+
+    /* 2. The Hero Background */
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 3. The Translucent Glass Container */
+    .glass-panel {
+        background-color: rgba(255, 255, 255, 0.4);
+/*        backdrop-filter: blur(8px);*/
+        border-radius: 20px;
+        padding: 40px;
+        width: 750px; /* Wide enough to fit the large buttons */
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 4. The Scrollable Window */
+    .scrollable-list {
+        max-height: 400px; /* Limits height so it scrolls instead of expanding the box */
+        overflow-y: auto;
+        padding-right: 15px; /* Adds a little space for the scrollbar */
+        margin-bottom: 20px;
+    }
+
+    /* Customizing the scrollbar to look modern */
+    .scrollable-list::-webkit-scrollbar { width: 12px; }
+    .scrollable-list::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+    .scrollable-list::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.5); border-radius: 10px; }
+    .scrollable-list::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.8); }
+
+    /* 5. Destination Button Styling */
+    .destination-label {
+        display: block;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+
+    /* Hide the default radio circle */
+    .destination-label input[type="radio"] {
+        display: none;
+    }
+
+    /* The actual visible "Pill" */
+    .option-pill {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(245, 245, 245, 0.95);
+        border: 2px solid #333;
+        border-radius: 50px;
+        padding: 15px 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.8rem;
+        color: #000;
+        transition: all 0.2s ease;
+    }
+
+    .price-text {
+        color: #28a745; /* The specific green from your picture */
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    /* 6. Interaction States (Hover and Selected) */
+    .destination-label:hover .option-pill {
+        background-color: #fff;
+        transform: scale(1.02); /* Pop out slightly */
+    }
+
+    /* When the hidden radio is checked, change the pill's color */
+    .destination-label input[type="radio"]:checked + .option-pill {
+        background-color: #cf7c52; /* Match the orange from the Home button */
+        color: #fff;
+        border-color: #a85e38;
+    }
+
+    .destination-label input[type="radio"]:checked + .option-pill .price-text {
+        color: #fff; /* Make price white when selected so it's readable */
+    }
+
+    /* 7. Next Button Setup */
+    .action-row {
+        display: flex;
+        justify-content: flex-end; /* Pushes the button to the right */
+        margin-top: 10px;
+    }
+
+    .btn-next {
+        background-color: #cf7c52;
+        color: #000;
+        font-size: 1.5rem;
+        padding: 10px 40px;
+        border-radius: 50px;
+        border: 2px solid #a85e38;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .btn-next:hover {
+        background-color: #b06540;
+        color: #fff;
+    }
+</style>
+
+<div class="hero-section">
+    <div class="glass-panel">
+
+        @using (Html.BeginForm("Confirm", "Ticket", FormMethod.Post))
+        {
+            <input type="hidden" name="isStudent" value="false" />
+
+            <div class="scrollable-list">
+
+
+                @foreach (var dest in Model)
+                {
+                    <label class="destination-label">
+                        <input type="radio" name="destinationId" value="@dest.DestinationID" required>
+                        <span class="option-pill">
+                            <span>@dest.StationName</span>
+                            <span class="price-text">@dest.BaseFare.ToString("N0")</span>
+                        </span>
+                    </label>
+                }
+
+
+            </div>
+
+            <div class="action-row">
+                <button type="submit" class="btn-next">Next</button>
+            </div>
+        }
+
+    </div>
+</div>

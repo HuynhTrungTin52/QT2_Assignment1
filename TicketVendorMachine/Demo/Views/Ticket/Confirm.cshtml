@@ -1,0 +1,197 @@
+﻿@model Demo.Models.Destination
+@{
+    ViewBag.Title = "Confirm Ticket";
+}
+
+<style>
+    /* Full-screen reset */
+    html, body { margin: 0 !important; padding: 0 !important; overflow: hidden !important; height: 100vh; width: 100vw; }
+    .container, .body-content, main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+    header, footer, .navbar { display: none !important; }
+
+    /* The Hero Background */
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* The Translucent Glass Container */
+    .glass-panel {
+        background-color: rgba(255, 255, 255, 0.4);
+/*        backdrop-filter: blur(10px);*/
+        border-radius: 20px;
+        padding: 40px;
+        width: 900px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* Input Labels & Pills */
+    .input-label {
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-left: 20px;
+        margin-bottom: 5px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+
+    .pill-input {
+        background-color: #e0e0e0;
+        border-radius: 50px;
+        padding: 15px 30px;
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Price and Quantity Controls */
+    .price-qty-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .price-box {
+        border: 2px solid #ff4d4d; /* Red border from your mockup */
+        border-radius: 20px;
+        padding: 10px 40px;
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .price-text {
+        color: #2e8b57; /* Dark green text */
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .qty-controls {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .btn-qty {
+        background-color: #e0e0e0;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn-qty:hover { background-color: #ccc; }
+
+    .qty-display {
+        font-size: 1.5rem;
+        font-weight: bold;
+        width: 50px;
+        text-align: center;
+    }
+
+    /* Roadmap Image */
+    .roadmap-container {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .roadmap-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Next Button */
+    .btn-next {
+        background-color: #cf7c52;
+        color: #000;
+        font-size: 1.5rem;
+        padding: 10px 50px;
+        border-radius: 50px;
+        border: 2px solid #a85e38;
+        cursor: pointer;
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        transition: 0.3s ease;
+    }
+    .btn-next:hover { background-color: #b06540; color: #fff; }
+</style>
+
+<div class="hero-section">
+    <div class="glass-panel">
+
+        @using (Html.BeginForm("CreateTicket", "Ticket", FormMethod.Post))
+        {
+            <input type="hidden" name="destinationId" value="@Model.DestinationID" />
+            <input type="hidden" name="isStudent" value="false" />
+
+            <input type="hidden" name="ticketQuantity" id="hiddenQuantity" value="1" />
+
+            <div class="input-label">Departure station</div>
+            <div class="pill-input">@ViewBag.DepartureStation</div>
+
+            <div class="input-label">Arrival station</div>
+            <div class="pill-input">@Model.StationName</div>
+
+            <div class="price-qty-row">
+                <div class="price-box">
+                    <span class="price-text" id="displayPrice">@Model.BaseFare.ToString("0")</span>
+                    <span style="font-size: 1.5rem; color: #2e8b57; font-weight: bold;">vnđ</span>
+                </div>
+
+                <div class="qty-controls">
+                    <button type="button" class="btn-qty" onclick="updateQuantity(-1)">−</button>
+                    <div class="qty-display" id="displayQty">1</div>
+                    <button type="button" class="btn-qty" onclick="updateQuantity(1)">+</button>
+                </div>
+            </div>
+
+            <div class="roadmap-container">
+                <img src="@Url.Content("~/Content/images/roadmap.jpg")" alt="Metro Roadmap" />
+            </div>
+
+            <button type="submit" class="btn-next">Next</button>
+        }
+    </div>
+</div>
+
+<script>
+    // Grab the base fare injected by Razor from the database
+    const baseFare = Number('@Model.BaseFare');
+    let currentQuantity = 1;
+
+    function updateQuantity(change) {
+        // Calculate new quantity, but prevent it from going below 1
+        let newQuantity = currentQuantity + change;
+        if (newQuantity < 1) return;
+
+        currentQuantity = newQuantity;
+
+        // Update the UI text
+        document.getElementById("displayQty").innerText = currentQuantity;
+
+        // Calculate new price and update the UI
+        let newPrice = baseFare * currentQuantity;
+        document.getElementById("displayPrice").innerText = newPrice.toString(); // Add formatting here if you want commas
+
+        // Update the hidden input so the C# Controller knows how many tickets to create!
+        document.getElementById("hiddenQuantity").value = currentQuantity;
+    }
+</script>

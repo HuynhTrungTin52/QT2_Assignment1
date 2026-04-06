@@ -156,6 +156,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\roadmap.jpg" />
     <Content Include="Content\images\saigon.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -191,6 +192,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Ticket\Confirm.cshtml" />
+    <Content Include="Views\Payment\PaymentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
