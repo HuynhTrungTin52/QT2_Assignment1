@@ -3,42 +3,38 @@
 }
 
 <style>
-    /* 1. Nuke the default browser and ASP.NET margins/scrollbars */
+   
     html, body {
         margin: 0 !important;
         padding: 0 !important;
-        overflow: hidden !important; /* This permanently kills the scrollbars */
+        overflow: hidden !important; 
         height: 100vh;
         width: 100vw;
     }
 
-    /* 2. Override the default ASP.NET Layout container padding */
     .container, .body-content, main {
         padding: 0 !important;
         margin: 0 !important;
         max-width: 100% !important;
     }
 
-    /* 3. Hide the default ASP.NET navbar and footer for this kiosk screen */
     header, footer, .navbar {
         display: none !important;
     }
 
-    /* 4. The Full-Screen Hero Section */
     .hero-section {
         background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
         background-size: cover;
         background-position: center;
         width: 100vw;
-        height: 100vh; /* Exactly 100% of the screen height */
+        height: 100vh;
 
-        /* Flexbox to perfectly center the glass box */
+
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    /* 5. The translucent glass box */
     .hero-glass-box {
         background-color: rgba(255, 255, 255, 0.6);
         backdrop-filter: blur(8px);
@@ -48,7 +44,6 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
-    /* 6. The Stylized Text */
     .hero-title {
         font-family: 'Georgia', serif;
         font-size: 4.5rem;
@@ -58,7 +53,6 @@
         letter-spacing: 2px;
     }
 
-    /* 7. The Pill Button */
     .btn-buy-ticket {
         background-color: #cf7c52;
         color: #000;
@@ -69,12 +63,12 @@
         text-decoration: none;
         transition: background-color 0.3s ease, transform 0.2s ease;
         display: inline-block;
-        border: 2px solid #a85e38; /* Added a border to make it pop */
+        border: 2px solid #a85e38; 
     }
 
     .btn-buy-ticket:hover {
         background-color: #b06540;
-        color: #fff; /* Switched to white text on hover for better contrast */
+        color: #fff; 
         text-decoration: none;
         transform: scale(1.05);
     }
