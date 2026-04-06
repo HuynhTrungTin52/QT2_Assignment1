@@ -1,33 +1,89 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewData["Title"] = "Home Page";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<style>
+    /* 1. Nuke the default browser and ASP.NET margins/scrollbars */
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important; /* This permanently kills the scrollbars */
+        height: 100vh;
+        width: 100vw;
+    }
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    /* 2. Override the default ASP.NET Layout container padding */
+    .container, .body-content, main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 3. Hide the default ASP.NET navbar and footer for this kiosk screen */
+    header, footer, .navbar {
+        display: none !important;
+    }
+
+    /* 4. The Full-Screen Hero Section */
+    .hero-section {
+        background-image: url('@Url.Content("~/Content/images/saigon.jpg")');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh; /* Exactly 100% of the screen height */
+
+        /* Flexbox to perfectly center the glass box */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 5. The translucent glass box */
+    .hero-glass-box {
+        background-color: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(8px);
+        padding: 60px 100px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 6. The Stylized Text */
+    .hero-title {
+        font-family: 'Georgia', serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+    }
+
+    /* 7. The Pill Button */
+    .btn-buy-ticket {
+        background-color: #cf7c52;
+        color: #000;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 15px 50px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: inline-block;
+        border: 2px solid #a85e38; /* Added a border to make it pop */
+    }
+
+    .btn-buy-ticket:hover {
+        background-color: #b06540;
+        color: #fff; /* Switched to white text on hover for better contrast */
+        text-decoration: none;
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="hero-section">
+    <div class="hero-glass-box">
+        <h1 class="hero-title">Welcome to Saigon</h1>
+
+        <a href="@Url.Action("Index", "Ticket")" class="btn-buy-ticket">Buy Ticket</a>
     </div>
-</main>
+</div>
